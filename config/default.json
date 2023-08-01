@@ -1,3 +1,4 @@
 {
-    "mongoURL": "mongodb+srv://admin:admin@devconnect.nlqvxvf.mongodb.net/?retryWrites=true&w=majority"
+    "mongoURL": "mongodb+srv://admin:admin@devconnect.nlqvxvf.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "mySecretTokenn"
 }
