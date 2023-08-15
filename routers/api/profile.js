@@ -217,17 +217,9 @@ router.delete('/education/:edu_id', auth, async (req,res)=>{
 // @access public
 router.get('/github/:username', async (req, res)=>{
     try {
-        const options = {
-            url: `https://api.github.com/users/${req.params.username}/repos?per_page=5`,
-            method: 'GET',
-            headers: { 'user-agent': 'node.js'}
-        };
         const result = await axios.get(`https://api.github.com/users/${req.params.username}/repos?per_page=5`);
         if(result.status !== 200) res.status(404).json({ msg: "NO github profile found"});
         const dataArray = result.data;
-        // for(var i =0; i<dataArray.length; i++){
-        //     const repoName = dataArray[i].name;
-        // }
         res.json(dataArray);
     } catch (err) {
         console.error(err.message);
