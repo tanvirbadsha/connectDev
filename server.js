@@ -1,14 +1,17 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+
 
 // Connecting to database
 connectDB();
 
 // Init middlewear
 app.use(express.json({extended: false}));
+app.use(cors()); // allow cors for all routes
 
 
 // define routes
@@ -19,7 +22,7 @@ app.use('/api/posts', require('./routers/api/posts'));
 
 
 app.get('/', (req,res)=>{
-    res.send("api is running");
+    res.send("api is running from server at 4000");
 });
 
 
